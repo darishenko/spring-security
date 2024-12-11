@@ -17,7 +17,7 @@ public class DefaultCsrfSecurityConfiguration {
     public SecurityFilterChain securityFilterChain(HttpSecurity httpSecurity) throws Exception {
         final Set<String> ignoringMethods = Set.of("GET", "HEAD", "OPTIONS", "TRACE");
 
-        CsrfTokenRepository csrfTokenRepository = new CookieCsrfTokenRepository();
+        CsrfTokenRepository csrfTokenRepository = new HttpSessionCsrfTokenRepository();
 
         return httpSecurity
                 .csrf(csrf -> csrf
